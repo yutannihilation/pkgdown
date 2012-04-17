@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Row and Column Sums and Means</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {padding-top: 60px;}
+      h2 {padding-top: 20px}
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class = "container">
+          <a class="brand" href="#"></a>
+          <div class="nav">
+            <ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#examples">Examples</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Form Row and Column Sums and Means</h1>
+
+      <div class="row">
+        <div class="span8">
+          <h2>Usage</h2>
+          <pre>colSums (x, na.rm = FALSE, dims = 1)
+rowSums (x, na.rm = FALSE, dims = 1)
+colMeans(x, na.rm = FALSE, dims = 1)
+rowMeans(x, na.rm = FALSE, dims = 1)</pre>
+
+          <h2>Arguments</h2>
+          <dl>
+            <dt>x</dt>
+            <dd>an array of two or more dimensions, containing numeric,
+    complex, integer or logical values, or a numeric data frame.</dd>
+            <dt>na.rm</dt>
+            <dd>logical.  Should missing values (including <code>NaN</code>)
+    be omitted from the calculations?</dd>
+            <dt>dims</dt>
+            <dd>integer: Which dimensions are regarded as &#145;rows&#146; or
+    &#145;columns&#146; to sum over.  For <code>row*</code>, the sum or mean is
+    over dimensions <code>dims+1, &#x2026;</code>; for <code>col*</code> it is over
+    dimensions <code>1:dims</code>.</dd>
+          </dl>
+
+          <div class="Description">
+            <h2>Description</h2>
+            
+            <p>Form row and column sums and means for numeric arrays.</p>
+        
+          </div>
+          <div class="Details">
+            <h2>Details</h2>
+            
+            <p>These functions are equivalent to use of <code><a href='apply.html'>apply</a></code> with
+  <code>FUN = mean</code> or <code>FUN = sum</code> with appropriate margins, but
+  are a lot faster.  As they are written for speed, they blur over some
+  of the subtleties of <code>NaN</code> and <code>NA</code>.  If <code>na.rm =
+    FALSE</code> and either <code>NaN</code> or <code>NA</code> appears in a sum, the
+  result will be one of <code>NaN</code> or <code>NA</code>, but which might be
+  platform-dependent.</p>
+        
+            <p>Notice that omission of missing values is done on a per-column or
+  per-row basis, so column means may not be over the same set of rows,
+  and vice versa.  To use only complete rows or columns, first select
+  them with <code><a href='na.omit.html'>na.omit</a></code> or <code><a href='complete.cases.html'>complete.cases</a></code>
+  (possibly on the transpose of <code>x</code>).</p>
+        
+          </div>
+          <div class="Value">
+            <h2>Value</h2>
+            
+            <p>A numeric or complex array of suitable size, or a vector if the result is
+  one-dimensional.  The <code>dimnames</code> (or <code>names</code> for a vector
+  result) are taken from the original array.</p>
+        
+            <p>If there are no values in a range to be summed over (after removing
+  missing values with <code>na.rm = TRUE</code>), that
+  component of the output is set to <code>0</code> (<code>*Sums</code>) or <code>NaN</code>
+  (<code>*Means</code>), consistent with <code><a href='sum.html'>sum</a></code> and
+  <code><a href='mean.html'>mean</a></code>.</p>
+        
+          </div>
+      
+          <h2 id="examples">Examples</h2>
+          <pre class="examples">
+<div class='input'></div>
+<div class='input'><span class="symbol">x</span> <span class="assignement"><-</span> <span class="functioncall">cbind</span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+24 24 
+</div>
+<div class='input'><span class="functioncall">dimnames</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">[[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">]</span> <span class="assignement"><-</span> <span class="symbol">letters</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="number">8</span><span class="keyword">]</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rowMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+ 3  3 
+</div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement"><-</span> <span class="functioncall">as.integer</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+24 24 
+</div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement"><-</span> <span class="symbol">x</span> <span class="keyword"><</span> <span class="number">3</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+ 0  3 
+</div>
+<div class='input'><span class="symbol">x</span> <span class="assignement"><-</span> <span class="functioncall">cbind</span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">,</span> <span class="keyword">]</span> <span class="assignement"><-</span> <span class="number">NA</span><span class="keyword">;</span> <span class="symbol">x</span><span class="keyword">[</span><span class="number">4</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">]</span> <span class="assignement"><-</span> <span class="number">NA</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rowMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+NA NA 
+</div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+21 21 
+</div>
+<div class='input'><span class="functioncall">rowMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'> x1  x2 
+3.0 3.5 
+</div>
+
+<div class='input'></div>
+<div class='input'><span class="functioncall">dim</span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span></div>
+<div class='output'>[1] 2 2 6
+</div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span></div>
+<div class='output'>          Gender
+Admit      Male Female
+  Admitted 1198    557
+  Rejected 1493   1278
+</div>
+<div class='input'><span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span></div>
+<div class='output'>  A   B   C   D   E   F 
+933 585 918 792 584 714 
+</div>
+
+<div class='input'></div>
+<div class='input'><span class="symbol">x</span> <span class="assignement"><-</span> <span class="functioncall">cbind</span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span> <span class="keyword">+</span> <span class="number">2i</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="number">5i</span><span class="keyword">)</span></div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">,</span> <span class="keyword">]</span> <span class="assignement"><-</span> <span class="number">NA</span><span class="keyword">;</span> <span class="symbol">x</span><span class="keyword">[</span><span class="number">4</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">]</span> <span class="assignement"><-</span> <span class="number">NA</span></div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rowMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+NA NA
+</div>
+<div class='input'><span class="functioncall">rowSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colSums</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>    x1     x2 
+21+14i 21-30i
+</div>
+<div class='input'><span class="functioncall">rowMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">colMeans</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>    x1     x2 
+3.0+2i 3.5-5i
+</div></pre>
+        </div>
+        <div class="span4">
+          <ul>
+            <li>colSums</li><li>rowSums</li><li>colMeans</li><li>rowMeans</li>
+          </ul>
+          <ul>
+            <li>array</li><li>algebra</li><li>arith</li>
+          </ul>
+            
+          <h2>See also</h2>
+          See also,<code><a href='apply.html'>apply</a></code>, <code><a href='rowsum.html'>rowsum</a></code>
+
+          <h2>Author</h2>
+          
+
+          
+        </div>
+      </div>
+    </div> <!-- /container -->
+  </body>
+</html>

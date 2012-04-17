@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Render template.. staticdocs 0.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {padding-top: 60px;}
+      h2 {padding-top: 20px}
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class = "container">
+          <a class="brand" href="#">staticdocs 0.1</a>
+          <div class="nav">
+            <ul class="nav">
+              <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Render template.</h1>
+
+      <div class="row">
+        <div class="span8">
+          <h2>Usage</h2>
+          <pre><span class="functioncall"><a href='render_template.html'>render_template</a></span><span class="keyword">(</span><span class="symbol">name</span><span class="keyword">,</span> <span class="symbol">data</span><span class="keyword">,</span> <span class="argument">path</span> <span class="argument">=</span> <span class="string">""</span><span class="keyword">)</span></pre>
+          
+          <h2>Arguments</h2>
+          <dl>
+            <dt>name</dt>
+            <dd>of the template</dd>
+            <dt>data</dt>
+            <dd>data for the template</dd>
+            <dt>path</dt>
+            <dd>location to create file.  If <code>""</code> (the
+  default), prints to standard out.</dd>
+          </dl>
+          
+          <div class="Description">
+            <h2>Description</h2>
+            
+            <p>Render template.</p>
+        
+          </div>
+      
+          <h2 id="examples">Examples</h2>
+          <pre class="examples"><div class='input'><span class="symbol">rd</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='parse_rd.html'>parse_rd</a></span><span class="keyword">(</span><span class="string">"colSums"</span><span class="keyword">,</span> <span class="string">"base"</span><span class="keyword">)</span>
+<span class="symbol">html</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='to_html.html'>to_html</a></span><span class="keyword">(</span><span class="symbol">rd</span><span class="keyword">,</span> <span class="argument">package</span> <span class="argument">=</span> <span class="string">"base"</span><span class="keyword">)</span>
+<span class="functioncall"><a href='render_template.html'>render_template</a></span><span class="keyword">(</span><span class="string">"topic"</span><span class="keyword">,</span> <span class="symbol">html</span><span class="keyword">)</span></div>
+<div class='output'><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Row and Column Sums and Means. </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {padding-top: 60px;}
+      h2 {padding-top: 20px}
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class = "container">
+          <a class="brand" href="#"></a>
+          <div class="nav">
+            <ul class="nav">
+              <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Form Row and Column Sums and Means</h1>
+
+      <div class="row">
+        <div class="span8">
+          <h2>Usage</h2>
+          <pre><span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>.colSums</a></span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">,</span> <span class="symbol">m</span><span class="keyword">,</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>.rowSums</a></span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">,</span> <span class="symbol">m</span><span class="keyword">,</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>.colMeans</a></span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">,</span> <span class="symbol">m</span><span class="keyword">,</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+<span class="functioncall"><a href='colSums.html'>.rowMeans</a></span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">,</span> <span class="symbol">m</span><span class="keyword">,</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span></pre>
+          
+          <h2>Arguments</h2>
+          <dl>
+            <dt>x</dt>
+            <dd>an array of two or more dimensions, containing numeric,
+    complex, integer or logical values, or a numeric data frame.</dd>
+            <dt>na.rm</dt>
+            <dd>logical.  Should missing values (including <code>NaN</code>)
+    be omitted from the calculations?</dd>
+            <dt>dims</dt>
+            <dd>integer: Which dimensions are regarded as &#145;rows&#146; or
+    &#145;columns&#146; to sum over.  For <code>row*</code>, the sum or mean is
+    over dimensions <code>dims+1, ...</code>; for <code>col*</code> it is over
+    dimensions <code>1:dims</code>.</dd>
+            <dt>X</dt>
+            <dd>a numeric matrix.</dd>
+            <dt>m, n</dt>
+            <dd>the dimensions of X.</dd>
+          </dl>
+          
+          <div class="Description">
+            <h2>Description</h2>
+            
+            <p>Form row and column sums and means for numeric arrays.</p>
+        
+          </div>
+
+          <div class="Details">
+            <h2>Details</h2>
+            
+            <p>These functions are equivalent to use of <code><a href='apply.html'>apply</a></code> with
+  <code>FUN = mean</code> or <code>FUN = sum</code> with appropriate margins, but
+  are a lot faster.  As they are written for speed, they blur over some
+  of the subtleties of <code>NaN</code> and <code>NA</code>.  If <code>na.rm =
+    FALSE</code> and either <code>NaN</code> or <code>NA</code> appears in a sum, the
+  result will be one of <code>NaN</code> or <code>NA</code>, but which might be
+  platform-dependent.</p>
+        
+            <p>Notice that omission of missing values is done on a per-column or
+  per-row basis, so column means may not be over the same set of rows,
+  and vice versa.  To use only complete rows or columns, first select
+  them with <code><a href='http://www.inside-r.org/r-doc/stats/na.fail'>na.omit</a></code> or <code><a href='http://www.inside-r.org/r-doc/stats/complete.cases'>complete.cases</a></code>
+  (possibly on the transpose of <code>x</code>). 
+  
+  The versions with an initial dot in the name are &#145;bare-bones&#146;
+  versions for use in programming: they apply only to numeric matrices
+  and do not name the result.</p>
+        
+          </div>
+
+          <div class="Value">
+            <h2>Value</h2>
+            
+            <p>A numeric or complex array of suitable size, or a vector if the result
+  is one-dimensional.  For the first four functions the <code>dimnames</code>
+  (or <code>names</code> for a vector result) are taken from the original
+  array.</p>
+        
+            <p>If there are no values in a range to be summed over (after removing
+  missing values with <code>na.rm = TRUE</code>), that
+  component of the output is set to <code>0</code> (<code>*Sums</code>) or <code>NaN</code>
+  (<code>*Means</code>), consistent with <code><a href='sum.html'>sum</a></code> and
+  <code><a href='mean.html'>mean</a></code>.</p>
+        
+          </div>
+      
+          <h2 id="examples">Examples</h2>
+          <pre class="examples"><div class='input'><span class="comment">## Compute row and column sums for a matrix:</span>
+<span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='cbind.html'>cbind</a></span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall"><a href='c.html'>c</a></span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+24 24 
+</div>
+<div class='input'><span class="functioncall"><a href='dimnames.html'>dimnames</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">[[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="symbol">letters</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="number">8</span><span class="keyword">]</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+ 3  3 
+</div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='integer.html'>as.integer</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+24 24 
+</div>
+<div class='input'><span class="symbol">x</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="symbol">x</span> <span class="keyword">&lt;</span> <span class="number">3</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+ 0  3 
+</div>
+<div class='input'><span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='cbind.html'>cbind</a></span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall"><a href='c.html'>c</a></span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="symbol">x</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">,</span> <span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span><span class="keyword">;</span> <span class="symbol">x</span><span class="keyword">[</span><span class="number">4</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+NA NA 
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+21 21 
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'> x1  x2 
+3.0 3.5 
+</div>
+<div class='input'>
+<span class="comment">## an array</span>
+<span class="functioncall"><a href='dim.html'>dim</a></span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span></div>
+<div class='output'>[1] 2 2 6
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span></div>
+<div class='output'>          Gender
+Admit      Male Female
+  Admitted 1198    557
+  Rejected 1493   1278
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">UCBAdmissions</span><span class="keyword">,</span> <span class="argument">dims</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span></div>
+<div class='output'>  A   B   C   D   E   F 
+933 585 918 792 584 714 
+</div>
+<div class='input'>
+<span class="comment">## complex case</span>
+<span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='cbind.html'>cbind</a></span><span class="keyword">(</span><span class="argument">x1</span> <span class="argument">=</span> <span class="number">3</span> <span class="keyword">+</span> <span class="number">2i</span><span class="keyword">,</span> <span class="argument">x2</span> <span class="argument">=</span> <span class="functioncall"><a href='c.html'>c</a></span><span class="keyword">(</span><span class="number">4</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">:</span><span class="number">5</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="number">5i</span><span class="keyword">)</span>
+<span class="symbol">x</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">,</span> <span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span><span class="keyword">;</span> <span class="symbol">x</span><span class="keyword">[</span><span class="number">4</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span>
+<span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span></div>
+<div class='output'>x1 x2 
+NA NA
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>rowSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colSums</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>    x1     x2 
+21+14i 21-30i
+</div>
+<div class='input'><span class="functioncall"><a href='colSums.html'>rowMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall"><a href='colSums.html'>colMeans</a></span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span> <span class="argument">=</span> <span class="number">TRUE</span><span class="keyword">)</span></div>
+<div class='output'>    x1     x2 
+3.0+2i 3.5-5i
+</div></pre>
+        </div>
+        <div class="span4">
+          <!-- <ul>
+            <li>colSums</li><li>rowSums</li><li>colMeans</li><li>rowMeans</li><li>.colSums</li><li>.rowSums</li><li>.colMeans</li><li>.rowMeans</li>
+          </ul>
+          <ul>
+            <li>array</li><li>algebra</li><li>arith</li>
+          </ul> -->
+            
+          <h2>See also</h2>
+          
+  <code><a href='apply.html'>apply</a></code>, <code><a href='rowsum.html'>rowsum</a></code>
+
+                    
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html></div></pre>
+        </div>
+        <div class="span4">
+          <!-- <ul>
+            <li>render_template</li>
+          </ul>
+          <ul>
+            
+          </ul> -->
+            
+                    
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Parse an rd file in to staticdocs format.. staticdocs 0.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {padding-top: 60px;}
+      h2 {padding-top: 20px}
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class = "container">
+          <a class="brand" href="#">staticdocs 0.1</a>
+          <div class="nav">
+            <ul class="nav">
+              <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Parse an rd file in to staticdocs format.</h1>
+
+      <div class="row">
+        <div class="span8">
+          <h2>Usage</h2>
+          <pre><span class="functioncall"><a href='parse_rd.html'>parse_rd</a></span><span class="keyword">(</span><span class="symbol">topic</span><span class="keyword">,</span> <span class="symbol">package</span><span class="keyword">)</span></pre>
+          
+          <h2>Arguments</h2>
+          <dl>
+            <dt>topic</dt>
+            <dd>topic name, as character vector</dd>
+            <dt>package</dt>
+            <dd>package name, as character vector</dd>
+          </dl>
+          
+          <div class="Description">
+            <h2>Description</h2>
+            
+            <p>Rd files are pretty printed with structural elements
+  coloured blue, and leaves are given a short prefix:
+  <code>\"</code> = text, <code>\'</code> = verbatim, and <code>></code> = R
+  code.</p>
+        
+          </div>
+      
+          <h2 id="examples">Examples</h2>
+          <pre class="examples"><div class='input'><span class="functioncall"><a href='parse_rd.html'>parse_rd</a></span><span class="keyword">(</span><span class="string">"geom_point"</span><span class="keyword">,</span> <span class="string">"ggplot2"</span><span class="keyword">)</span></div>
+<div class='output'>\- [0;34m[0m (10)
+  \- [0;34mtitle[0m (1)
+    [0;34m"[0m Points, as for a scatterplot
+  \- [0;34mname[0m (1)
+    [0;34m'[0m geom_point
+  \- [0;34malias[0m (1)
+    [0;34m'[0m geom_point
+  \- [0;34mdescription[0m (2)
+    [0;34m"[0m 
+    [0;34m"[0m The point geom is used to create scatterplots.
+  \- [0;34musage[0m (4)
+    [0;34m>[0m 
+    [0;34m>[0m geom_point(mapping = NULL, data = NULL,
+    [0;34m>[0m stat = "identity", position = "identity",
+    [0;34m>[0m na.rm = FALSE, ...)
+  \- [0;34marguments[0m (24)
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m mapping
+      \- [0;34m[0m (8)
+        [0;34m"[0m The aesthetic mapping, usually constructed
+        [0;34m"[0m with
+        \- [0;34mcode[0m (1)
+          \- [0;34mlink[0m (1)
+            [0;34m"[0m aes
+        [0;34m"[0m or
+        \- [0;34mcode[0m (1)
+          \- [0;34mlink[0m (1)
+            [0;34m"[0m aes_string
+        [0;34m"[0m . Only
+        [0;34m"[0m needs to be set at the layer level if you are overriding
+        [0;34m"[0m the plot defaults.
+    [0;34m"[0m 
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m data
+      \- [0;34m[0m (2)
+        [0;34m"[0m A layer specific dataset - only needed if you
+        [0;34m"[0m want to override the plot defaults.
+    [0;34m"[0m 
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m stat
+      \- [0;34m[0m (2)
+        [0;34m"[0m The statistical transformation to use on the
+        [0;34m"[0m data for this layer.
+    [0;34m"[0m 
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m position
+      \- [0;34m[0m (2)
+        [0;34m"[0m The position adjustment to use for
+        [0;34m"[0m overlappling points on this layer
+    [0;34m"[0m 
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m na.rm
+      \- [0;34m[0m (7)
+        [0;34m"[0m If
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m FALSE
+        [0;34m"[0m (the default), removes
+        [0;34m"[0m missing values with a warning.  If
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m TRUE
+        [0;34m"[0m silently
+        [0;34m"[0m removes missing values.
+    [0;34m"[0m 
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mitem[0m (2)
+      \- [0;34m[0m (1)
+        [0;34m"[0m ...
+      \- [0;34m[0m (8)
+        [0;34m"[0m other arguments passed on to
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          \- [0;34mlink[0m (1)
+            [0;34m"[0m layer
+        [0;34m"[0m . This can include aesthetics whose
+        [0;34m"[0m values you want to set, not map. See
+        \- [0;34mcode[0m (1)
+          \- [0;34mlink[0m (1)
+            [0;34m"[0m layer
+        [0;34m"[0m 
+        [0;34m"[0m for more details.
+    [0;34m"[0m 
+  \- [0;34mdetails[0m (42)
+    [0;34m"[0m 
+    [0;34m"[0m The scatterplot is useful for displaying the relationship
+    [0;34m"[0m between two continuous variables, although it can also be
+    [0;34m"[0m used with one continuous and one categorical variable, or
+    [0;34m"[0m two categorical variables.  See
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m geom_jitter
+    [0;34m"[0m 
+    [0;34m"[0m for possibilities.
+    [0;34m"[0m 
+    [0;34m"[0m The
+    \- [0;34memph[0m (1)
+      [0;34m"[0m bubblechart
+    [0;34m"[0m is a scatterplot with a third
+    [0;34m"[0m variable mapped to the size of points.  There are no
+    [0;34m"[0m special names for scatterplots where another variable is
+    [0;34m"[0m mapped to point shape or colour, however.
+    [0;34m"[0m 
+    [0;34m"[0m The biggest potential problem with a scatterplot is
+    [0;34m"[0m overplotting: whenever you have more than a few points,
+    [0;34m"[0m points may be plotted on top of one another. This can
+    [0;34m"[0m severely distort the visual appearance of the plot. There
+    [0;34m"[0m is no one solution to this problem, but there are some
+    [0;34m"[0m techniques that can help.  You can add additional
+    [0;34m"[0m information with
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m stat_smooth
+    [0;34m"[0m ,
+    [0;34m"[0m 
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m stat_quantile
+    [0;34m"[0m or
+    [0;34m"[0m 
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m stat_density2d
+    [0;34m"[0m .  If you have few unique x
+    [0;34m"[0m values,
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m geom_boxplot
+    [0;34m"[0m may also be useful.
+    [0;34m"[0m Alternatively, you can summarise the number of points at
+    [0;34m"[0m each location and display that in some way, using
+    [0;34m"[0m 
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m stat_sum
+    [0;34m"[0m . Another technique is to use
+    [0;34m"[0m transparent points,
+    \- [0;34mcode[0m (1)
+      [0;34m>[0m geom_point(alpha = 0.05)
+    [0;34m"[0m .
+  \- [0;34msection[0m (2)
+    \- [0;34m[0m (1)
+      [0;34m"[0m Aesthetics
+    \- [0;34m[0m (8)
+      [0;34m"[0m 
+      [0;34m"[0m 
+      \- [0;34mcode[0m (1)
+        [0;34m>[0m geom_point
+      [0;34m"[0m understands the following aesthetics:
+      [0;34m"[0m 
+      [0;34m"[0m 
+      \- [0;34mitemize[0m (34)
+        [0;34m"[0m 
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m x
+        [0;34m"[0m : horizontal position
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m y
+        [0;34m"[0m : vertical position
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m shape
+        [0;34m"[0m : point
+        [0;34m"[0m shape.
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m colour
+        [0;34m"[0m : point colour.
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m fill
+        [0;34m"[0m : fill colour, only affects solid points
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m size
+        [0;34m"[0m : size.
+        \- [0;34mitem[0m (0)
+        [0;34m"[0m 
+        \- [0;34mcode[0m (1)
+          [0;34m>[0m alpha
+        [0;34m"[0m : alpha
+        [0;34m"[0m transparency modifies colour.
+      [0;34m"[0m 
+  \- [0;34mseealso[0m (8)
+    [0;34m"[0m 
+    [0;34m"[0m 
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m scale_size
+    [0;34m"[0m to see scale area of points,
+    [0;34m"[0m instead of radius,
+    \- [0;34mcode[0m (1)
+      \- [0;34mlink[0m (1)
+        [0;34m"[0m geom_jitter
+    [0;34m"[0m to jitter
+    [0;34m"[0m points to reduce (mild) overplotting
+  \- [0;34mexamples[0m (3)
+    [0;34m>[0m 
+    \- [0;34mdonttest[0m (56)
+      [0;34m>[0m 
+      [0;34m>[0m p <- ggplot(mtcars, aes(wt, mpg))
+      [0;34m>[0m p + geom_point()
+      [0;34m>[0m 
+      [0;34m>[0m # Add aesthetic mappings
+      [0;34m>[0m p + geom_point(aes(colour = qsec))
+      [0;34m>[0m p + geom_point(aes(alpha = qsec))
+      [0;34m>[0m p + geom_point(aes(colour = factor(cyl)))
+      [0;34m>[0m p + geom_point(aes(shape = factor(cyl)))
+      [0;34m>[0m p + geom_point(aes(size = qsec))
+      [0;34m>[0m 
+      [0;34m>[0m # Change scales
+      [0;34m>[0m p + geom_point(aes(colour = cyl)) + scale_colour_gradient(low
+      [0;34m>[0m p + geom_point(aes(size = qsec)) + scale_area()
+      [0;34m>[0m p + geom_point(aes(shape = factor(cyl))) + scale_shape(solid 
+      [0;34m>[0m 
+      [0;34m>[0m # Set aesthetics to fixed value
+      [0;34m>[0m p + geom_point(colour = "red", size = 3)
+      [0;34m>[0m qplot(wt, mpg, data = mtcars, colour = I("red"), size = I(3))
+      [0;34m>[0m 
+      [0;34m>[0m # Varying alpha is useful for large datasets
+      [0;34m>[0m d <- ggplot(diamonds, aes(carat, price))
+      [0;34m>[0m d + geom_point(alpha = 1/10)
+      [0;34m>[0m d + geom_point(alpha = 1/20)
+      [0;34m>[0m d + geom_point(alpha = 1/100)
+      [0;34m>[0m 
+      [0;34m>[0m # You can create interesting shapes by layering multiple poin
+      [0;34m>[0m # different sizes
+      [0;34m>[0m p <- ggplot(mtcars, aes(mpg, wt))
+      [0;34m>[0m p + geom_point(colour="grey50", size = 4) + geom_point(aes(co
+      [0;34m>[0m p + aes(shape = factor(cyl)) +
+      [0;34m>[0m geom_point(aes(colour = factor(cyl)), size = 4) +
+      [0;34m>[0m geom_point(colour="grey90", size = 1.5)
+      [0;34m>[0m p + geom_point(colour="black", size = 4.5) +
+      [0;34m>[0m geom_point(colour="pink", size = 4) +
+      [0;34m>[0m geom_point(aes(shape = factor(cyl)))
+      [0;34m>[0m 
+      [0;34m>[0m # These extra layers don't usually appear in the legend, but 
+      [0;34m>[0m # force their inclusion
+      [0;34m>[0m p + geom_point(colour="black", size = 4.5, show_guide = TRUE)
+      [0;34m>[0m geom_point(colour="pink", size = 4, show_guide = TRUE) +
+      [0;34m>[0m geom_point(aes(shape = factor(cyl)))
+      [0;34m>[0m 
+      [0;34m>[0m # Transparent points:
+      [0;34m>[0m qplot(mpg, wt, data = mtcars, size = I(5), alpha = I(0.2))
+      [0;34m>[0m 
+      [0;34m>[0m # geom_point warns when missing values have been dropped from
+      [0;34m>[0m # and not plotted, you can turn this off by setting na.rm = T
+      [0;34m>[0m mtcars2 <- transform(mtcars, mpg = ifelse(runif(32) < 0.2, NA
+      [0;34m>[0m qplot(wt, mpg, data = mtcars2)
+      [0;34m>[0m qplot(wt, mpg, data = mtcars2, na.rm = TRUE)
+      [0;34m>[0m 
+      [0;34m>[0m # Use qplot instead
+      [0;34m>[0m qplot(wt, mpg, data = mtcars)
+      [0;34m>[0m qplot(wt, mpg, data = mtcars, colour = factor(cyl))
+      [0;34m>[0m qplot(wt, mpg, data = mtcars, colour = I("red"))
+    [0;34m>[0m 
+</div></pre>
+        </div>
+        <div class="span4">
+          <!-- <ul>
+            <li>parse_rd</li>
+          </ul>
+          <ul>
+            
+          </ul> -->
+            
+                    
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html>
