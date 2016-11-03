@@ -24,7 +24,7 @@
 #'
 #' @inheritParams build_articles
 #' @export
-build_home <- function(pkg = ".", path = "docs", depth = 0L) {
+build_home <- function(pkg = ".", path = "docs", depth = 0L, encoding = "UTF-8") {
   old <- set_pkgdown_env("true")
   on.exit(set_pkgdown_env(old))
 
@@ -62,7 +62,8 @@ build_home <- function(pkg = ".", path = "docs", depth = 0L) {
             rmarkdown::render(
               input,
               output_options = list(html_preview = FALSE),
-              quiet = TRUE
+              quiet = TRUE,
+              encoding = encoding
             )
           },
           args = list(data$path)
@@ -77,7 +78,8 @@ build_home <- function(pkg = ".", path = "docs", depth = 0L) {
         depth = depth,
         data = data,
         toc = FALSE,
-        strip_header = TRUE
+        strip_header = TRUE,
+        encoding = encoding
       )
     }
   }
