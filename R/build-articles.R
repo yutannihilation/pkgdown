@@ -88,7 +88,7 @@ render_rmd <- function(pkg,
                        data = list(),
                        toc = TRUE,
                        depth = 1L,
-                       encoding = getOption("encoding")) {
+                       encoding = "UTF-8") {
   message("Building article '", output_file, "'")
 
   format <- build_rmarkdown_format(pkg, depth = depth, data = data, toc = toc)
